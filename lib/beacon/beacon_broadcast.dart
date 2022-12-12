@@ -25,6 +25,8 @@ class BeaconBroadcast {
 
   final AdvertisingTxPowerLevel? advertisingTxPowerLevel;
 
+  final List<int> extraData;
+
   BeaconBroadcast({
     this.identifier = 'com.flutterBeacon',
     required this.proximityUUID,
@@ -33,10 +35,12 @@ class BeaconBroadcast {
     this.txPower,
     this.advertisingMode = AdvertisingMode.low,
     this.advertisingTxPowerLevel = AdvertisingTxPowerLevel.high,
+    this.extraData = const [0],
   }) {
     if (Platform.isAndroid) {
       assert(advertisingMode != null);
       assert(advertisingTxPowerLevel != null);
+      assert(extraData.any((value) => value < 0 || value > 255));
     } else if (Platform.isIOS) {
       assert(identifier != null);
     }
@@ -49,6 +53,7 @@ class BeaconBroadcast {
       'major': major,
       'minor': minor,
       'txPower': txPower,
+      'extraData': extraData,
     };
 
     if (advertisingMode != null) {

@@ -37,6 +37,8 @@ class Beacon {
   /// The proximity of beacon.
   final Proximity? _proximity;
 
+  final List<int> extraData;
+
   /// Create beacon object.
   const Beacon({
     required this.proximityUUID,
@@ -45,6 +47,7 @@ class Beacon {
     required this.minor,
     int? rssi,
     this.txPower,
+    required this.extraData,
     required this.accuracy,
     Proximity? proximity,
   })  : this.rssi = rssi ?? -1,
@@ -61,6 +64,7 @@ class Beacon {
           txPower: _parseInt(json['txPower']),
           accuracy: _parseDouble(json['accuracy']),
           proximity: _parseProximity(json['proximity']),
+          extraData: json['extraData'],
         );
 
   /// Parsing dynamic data into double.

@@ -120,7 +120,8 @@ class FlutterBeaconUtils {
       builder.setTxPower(-59);
     }
 
-    builder.setDataFields(Collections.singletonList(0L));
+    Object extraData = map.get("extraData");
+    builder.setDataFields((List<Long>)extraData);
     builder.setManufacturer(0x004c);
 
     return builder.build();
