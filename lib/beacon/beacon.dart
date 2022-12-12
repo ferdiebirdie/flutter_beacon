@@ -64,8 +64,15 @@ class Beacon {
           txPower: _parseInt(json['txPower']),
           accuracy: _parseDouble(json['accuracy']),
           proximity: _parseProximity(json['proximity']),
-          extraData: json['extraData'] ?? [0],
+          extraData: _parseObjListToIntList(json['extraData']),
         );
+
+  /// Parsing List<Object?> to type List<int>
+  static List<int> _parseObjListToIntList(List<Object?> extraData) {
+    var data = extraData.map((e) => _parseInt(e) ?? 0).toList();
+    print('parsedObjListToIntList: $data');
+    return data;
+  }
 
   /// Parsing dynamic data into double.
   static double _parseDouble(dynamic data) {
