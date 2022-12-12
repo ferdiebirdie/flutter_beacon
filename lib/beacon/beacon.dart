@@ -64,7 +64,7 @@ class Beacon {
           txPower: _parseInt(json['txPower']),
           accuracy: _parseDouble(json['accuracy']),
           proximity: _parseProximity(json['proximity']),
-          extraData: json['extraData'],
+          extraData: json['extraData'] ?? [0],
         );
 
   /// Parsing dynamic data into double.

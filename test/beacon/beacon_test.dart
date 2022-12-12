@@ -13,6 +13,7 @@ main() {
       rssi: -60,
       txPower: -59,
       accuracy: 0.0,
+      extraData: [0]
     );
 
     expect(beacon.proximityUUID, 'UUID');
@@ -30,6 +31,7 @@ main() {
       major: 1,
       minor: 2,
       txPower: -59,
+      extraData: [0]
     );
     expect(beacon2.proximity, Proximity.immediate);
 
@@ -40,6 +42,7 @@ main() {
       minor: 2,
       txPower: -59,
       rssi: null,
+      extraData: [0]
     );
     expect(beacon3.proximity, Proximity.near);
     expect(beacon3.rssi, -1);
