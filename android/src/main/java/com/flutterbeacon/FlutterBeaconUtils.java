@@ -121,7 +121,7 @@ class FlutterBeaconUtils {
     }
 
     Object extraData = map.get("extraData");
-    builder.setDataFields((List<Long>)extraData);
+    builder.setDataFields((byte[])extraData);
     builder.setManufacturer(0x004c);
 
     return builder.build();
