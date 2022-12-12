@@ -42,6 +42,7 @@ class FlutterBeaconUtils {
     map.put("txPower", beacon.getTxPower());
     map.put("accuracy", String.format(Locale.US, "%.2f", beacon.getDistance()));
     map.put("macAddress", beacon.getBluetoothAddress());
+    map.put("extraData", beacon.getDataFields());
 
     return map;
   }
@@ -122,7 +123,7 @@ class FlutterBeaconUtils {
 
     Object extraData = map.get("extraData");
     builder.setDataFields((List<Long>)extraData);
-    
+
     builder.setManufacturer(0x004c);
 
     return builder.build();
