@@ -143,6 +143,7 @@ class Beacon {
       'minor': minor,
       'rssi': rssi,
       'accuracy': accuracy,
+      'extraData': extraData,
       'proximity': proximity.toString().split('.').last
     };
 
