@@ -40,7 +40,7 @@ class BeaconBroadcast {
     if (Platform.isAndroid) {
       assert(advertisingMode != null);
       assert(advertisingTxPowerLevel != null);
-      assert(extraData.any((value) => value < 0 || value > 255));
+      assert(extraData.every((value) => !(value < 0 || value > 255)));
     } else if (Platform.isIOS) {
       assert(identifier != null);
     }
